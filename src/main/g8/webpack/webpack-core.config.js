@@ -21,16 +21,12 @@ module.exports = {
       // "file" loader for svg
       {
         test: /\.svg\$/,
-        use: [
-          {
-            loader: 'file-loader',
-            query: {
-              name: 'static/media/[name].[hash:8].[ext]'
-            }
-          }
-        ]
+        type: 'asset',
+        generator: {
+          filename: 'static/media/[name].[hash:8].[ext]'
+        }
       }
-    ]
+   ]
   },
   plugins: [
     new CopyWebpackPlugin({
